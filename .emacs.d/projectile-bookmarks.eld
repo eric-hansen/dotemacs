@@ -1,0 +1,1 @@
+("~/" "~/Projects/NAB/PHP/web-login/" "~/Projects/NAB/PHP/mobile-api/" "~/.atom/packages/save-session/")
