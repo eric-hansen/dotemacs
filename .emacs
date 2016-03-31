@@ -8,14 +8,14 @@
 			("org" . "http://orgmode.org/elpa/")
 			("gnu" . "http://elpa.gnu.org/packages/")))
 
+;; Keep this last so we can set any generic or special things after the packages have been loaded
+(require 'eric-general-setup)
+
 ;; Org-mode for my own stuff
 (require 'eric-org-mode)
 
 ;; JIRA org-mode because...we can
 (require 'eric-org-jira)
-
-;; IRC for the funs!
-(require 'eric-erc)
 
 (require 'eric-evil)
 (require 'eric-evil-leader)
@@ -33,8 +33,6 @@
 ;; Molokai theme
 (require 'eric-molokai-theme)
 
-;; Keep this last so we can set any generic or special things after the packages have been loaded
-(require 'eric-general-setup)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
