@@ -1,10 +1,19 @@
 (require 'package)
 
+(setq eric-pkg-initialized nil)
+
+(defun eric-pkg-init ()
+  (package-initialize)
+  (setq eric-pkg-initialized t)
+)
+
 (defun eric-pkg (pkg)
   "Checks if a package is installed, if not then install it, and then require it"
   (interactive)
-  (message "Checking for existence of %s" pkg)
-  (package-initialize)
+  (unless eric-pkg-initialized
+    (eric-pkg-init)
+  )
+
   (unless (package-installed-p pkg)
     (package-install pkg)
   )

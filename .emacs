@@ -8,6 +8,9 @@
 			("org" . "http://orgmode.org/elpa/")
 			("gnu" . "http://elpa.gnu.org/packages/")))
 
+;; Make sure the package handling support is loaded
+(require 'pkg-funcs)
+
 ;; Keep this last so we can set any generic or special things after the packages have been loaded
 (require 'eric-general-setup)
 
