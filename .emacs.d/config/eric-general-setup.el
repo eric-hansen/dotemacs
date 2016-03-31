@@ -1,3 +1,16 @@
+(require 'package)
+
+(defun eric-pkg (pkg)
+  "Checks if a package is installed, if not then install it, and then require it"
+  (interactive)
+  (message "Checking for existence of %s" pkg)
+  (package-initialize)
+  (unless (package-installed-p pkg)
+    (package-install pkg)
+  )
+  (require pkg)
+)
+
 (global-hl-line-mode 1)
 (setq scroll-step 1)
 (setq tab-width 4)
