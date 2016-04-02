@@ -3,9 +3,9 @@
 (setq pkg-initialized nil)
 
 (defun pkg-init ()
-  (package-initialize)
-  (setq pkg-initialized t)
-)
+;;  (package-initialize)
+  (package-refresh-contents)
+  (setq pkg-initialized t))
 
 ; There's no sane way in Emacs it seems to install packages if they don't exist,
 ; so by default if you call require on a package that doesn't exist Emacs will
@@ -19,14 +19,11 @@
   (interactive)
   ; We need to initialize the package listing to make sure this works, but only do it once
   (unless pkg-initialized
-    (pkg-init)
-  )
+    (pkg-init))
 
   (unless (package-installed-p pkg)
-    (package-install pkg)
-  )
+    (package-install pkg))
 
-  (require pkg)
-)
+  (require pkg))
 
 (provide 'pkg-funcs)
