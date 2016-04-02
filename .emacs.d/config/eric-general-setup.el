@@ -1,25 +1,3 @@
-(require 'package)
-
-(setq eric-pkg-initialized nil)
-
-(defun eric-pkg-init ()
-  (package-initialize)
-  (setq eric-pkg-initialized t)
-)
-
-(defun eric-pkg (pkg)
-  "Checks if a package is installed, if not then install it, and then require it"
-  (interactive)
-  (unless eric-pkg-initialized
-    (eric-pkg-init)
-  )
-
-  (unless (package-installed-p pkg)
-    (package-install pkg)
-  )
-  (require pkg)
-)
-
 (global-hl-line-mode 1)
 (setq scroll-step 1)
 (setq tab-width 4)
