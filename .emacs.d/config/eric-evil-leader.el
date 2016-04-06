@@ -1,5 +1,6 @@
 (require 'evil-leader)
 (require 'helm)
+(require 'eric-evil-funcs)
 
 (defun insert-semi ()
     "Insert a semi."
@@ -17,18 +18,23 @@
 	"k" 'kill-buffer
 	"f" 'helm-projectile-find-file
 	"p" 'helm-projectile-switch-project
-	"s" 'helm-swoop
+	"s" 'evil-s
+	"S" 'evil-S
 	"i" 'helm-imenu
 	"h" 'helm-projectile
 	"o" 'kill-buffer-and-window
-	"j" 'init-eric-org-jira
+	"j" 'evil-j
+        "J" 'evil-J
 	"I" 'start-irc
+	"t" 'evil-t
+	"," 'evil-comma
+	"m" 'evil-m
 )
 
 (evil-leader/set-leader ";")
 
 (setq evil-leader/no-prefix-mode-rx
             '(".*sql-.*" "jabber-chat" "eshell-mode" "ERC" "Erc.*" "slime-repl.*"
-	          "magit-.*-mode" "gnus-.*-mode" "twittering-mode" "Org-Agenda" "Package"))
+	          "magit-.*-mode" "gnus-.*-mode" "twittering-mode" "Org-Agenda" "Package" "Message*" ))
 
 (provide 'eric-evil-leader)

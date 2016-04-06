@@ -7,3 +7,42 @@
   (interactive)
   ;; do stuff
 )
+
+(defun evil-m ()
+  (interactive)
+  (call-interactively 'magit-status))
+
+(defun evil-j ()
+  "Do different actions with this key based on the mode we are in."
+  (interactive)
+  (message "Current unread: [ERC: %d | Jabber: %d]" (length erc-modified-channels-alist) (length jabber-activity-jids))
+  (if (< 0 (length erc-modified-channels-alist))
+      (call-interactively 'erc-track-switch-buffer)
+    (if jabber-activity-jids
+	(call-interactively 'jabber-activity-switch-to)
+      )))
+
+(defun evil-J ()
+  (interactive)
+  (when (eq (string-prefix-p major-mode 'jabber-chat nil) nil)
+    (jabber-connect-all)
+  ))
+
+(defun evil-s ()
+  (interactive)
+  (call-interactively 'magit-status))
+
+(defun evil-S ()
+  (interactive)
+  (message "evil-S called"))
+
+(defun evil-comma ()
+  (interactive)
+  (message "Current major mode is %s" major-mode))
+
+(defun evil-t ()
+  (interactive)
+  (when (not major-mode 'twittering-mode)
+    (call-interactively 'twit)))
+
+(provide 'eric-evil-funcs)
