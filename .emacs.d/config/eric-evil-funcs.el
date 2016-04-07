@@ -51,7 +51,7 @@
 
 (defun evil-t ()
   (interactive)
-  (when (not major-mode 'twittering-mode)
+  (unless (equal major-mode 'twittering-mode)
     (call-interactively 'twit)))
 
 (provide 'eric-evil-funcs)
