@@ -2,3 +2,7 @@
 ac-comphist.dat
 .emacs.d/url/
 .emacs.d/config/eric-erc.el
+!.emacs.home
+!.emacs
+!.emacs.work
+!.emacs.d/config/
