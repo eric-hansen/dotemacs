@@ -25,7 +25,7 @@
 	"o" 'kill-buffer-and-window
 	"j" 'evil-j
         "J" 'evil-J
-	"I" 'start-irc
+	"I" 'evil-I
 	"t" 'evil-t
 	"," 'evil-comma
 	"m" 'evil-m
