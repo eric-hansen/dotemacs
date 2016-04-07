@@ -14,7 +14,8 @@
 
 ;; Authentication stuff
 (require 'eric-auth)
-(require 'passwd)
+
+(eric-auth-init)
 
 ;; Keep this last so we can set any generic or special things after the packages have been loaded
 (require 'eric-general-setup)
