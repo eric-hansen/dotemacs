@@ -3,6 +3,15 @@
 ;; So for example if I want to share ";p" across different modes I would write a function called evil-p and that would handle all the
 ;; different modes.
 
+(defvar eric-activity-priority 'erc "If there's an unread buffer for ERC and Jabber, set this to determine which one should be switched to first.")
+
+(defun evil-I ()
+  (interactive)
+  (if (not (equal major-mode 'erc-mode))
+     (call-interactively 'start-irc)
+     (message "Already in IRC")
+  ))
+
 (defun evil-p ()
   (interactive)
   ;; do stuff
