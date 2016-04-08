@@ -12,9 +12,13 @@
      (message "Already in IRC")
   ))
 
+(defun evil-l ()
+  (interactive)
+  (call-interactively 'load-file))
+
 (defun evil-p ()
   (interactive)
-  ;; do stuff
+  (next-buffer)
 )
 
 (defun evil-m ()
