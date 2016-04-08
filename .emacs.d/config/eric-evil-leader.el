@@ -29,6 +29,7 @@
 	"t" 'evil-t
 	"," 'evil-comma
 	"m" 'evil-m
+	"l" 'evil-l
 )
 
 (evil-leader/set-leader ";")
