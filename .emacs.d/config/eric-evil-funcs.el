@@ -4,6 +4,43 @@
 ;; different modes.
 
 (defvar eric-activity-priority 'erc "If there's an unread buffer for ERC and Jabber, set this to determine which one should be switched to first.")
+(defvar eric-evil-t-shell "/bin/bash" "The shell to use in multi-term")
+
+(require 'helm)
+(require 'projectile)
+(require 'multi-term)
+
+(defun replace-in-buffer ()
+  (interactive)
+  (save-excursion
+    (if (equal mark-active nil) (mark-word))
+    (setq curr-word (buffer-substring-no-properties (mark) (point)))
+    (setq old-string (read-string "OLD string:\n" curr-word))
+    (setq new-string (read-string "NEW string:\n" old-string))
+    (query-replace old-string new-string nil (point-min) (point-max))))
+
+(defun evil-t ()
+  (interactive)
+  (setq eric-evil-t-shell (read-string (format "Shell for terminal [%s]: " eric-evil-t-shell) nil nil eric-evil-t-shell))
+  (setq multi-term-program eric-evil-t-shell)
+  (call-interactively 'multi-term))
+
+(defun evil-b ()
+  (interactive)
+  (helm-mini)
+  )
+
+(defun evil-r ()
+  (interactive)
+  (replace-in-buffer))
+
+(defun evil-G ()
+  (interactive)
+  (let* ((query-string (read-string "String to search for: " (thing-at-point 'word)))
+	 (evil-G-extension (file-name-extension (buffer-file-name)))
+	 (files-quoted (format "'%s'" (read-string "Files: " (format "*.%s" evil-G-extension)))))
+    (vc-git-grep query-string files-quoted (projectile-project-root))
+    (switch-to-buffer-other-window "*grep*")))
 
 (defun evil-I ()
   (interactive)
@@ -53,7 +90,7 @@
   (interactive)
   (message "Current major mode is %s" major-mode))
 
-(defun evil-t ()
+(defun evil-T ()
   (interactive)
   (unless (equal major-mode 'twittering-mode)
     (call-interactively 'twit)))

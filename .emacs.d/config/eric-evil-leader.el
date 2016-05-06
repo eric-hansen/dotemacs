@@ -14,7 +14,6 @@
 	";" 'insert-semi
 	"x" 'helm-M-x
 	"e" 'helm-find-files
-	"b" 'helm-mini
 	"k" 'kill-buffer
 	"f" 'helm-projectile-find-file
 	"p" 'helm-projectile-switch-project
@@ -27,9 +26,13 @@
         "J" 'evil-J
 	"I" 'evil-I
 	"t" 'evil-t
+	"r" 'evil-r
 	"," 'evil-comma
 	"m" 'evil-m
 	"l" 'evil-l
+	"b" 'evil-b
+	"G" 'evil-G
+	"T" 'evil-T
 )
 
 (evil-leader/set-leader ";")
